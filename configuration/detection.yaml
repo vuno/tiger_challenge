@@ -1,0 +1,38 @@
+model_1:
+  R@P.95: 0.71874
+  R@P.95 TH: 0.42026
+  path: /vuno/pretrained_weights/detection/model_1.pt
+  th: 0.24
+  type: yolov5
+model_2:
+  R@P.95: 0.6994067237969677
+  R@P.95 TH: 0.40680280327796936
+  path: /vuno/pretrained_weights/detection/model_2.pt
+  th: 0.4
+  type: yolov5
+model_3:
+  R@P.95: 0.6704021094264997
+  R@P.95 TH: 0.25226356983184817
+  path: /vuno/pretrained_weights/detection/model_3.pt
+  th: 0.25
+  type: yolov5
+model_4:
+  R@P.95: 0.70073
+  R@P.95 TH: 0.56993
+  path: /vuno/pretrained_weights/detection/model_4.pt
+  th: 0.57
+  type: yolov5
+model_5:
+  path: /vuno/pretrained_weights/detection/model_5.pt
+  th: 0.35
+  type: yolov5
+model_6:
+  path: /vuno/pretrained_weights/detection/model_6.pt
+  th: 0.32
+  type: yolov5
+model_7:
+  R@P.95: 0.64623
+  R@P.95 TH: 0.40664
+  path: /vuno/pretrained_weights/detection/model_7.pt
+  th: 0.4
+  type: yolov5

@@ -1,0 +1,18 @@
+# TIGER official requirements
+numpy==1.20.2
+tqdm==4.62.3
+
+# Challenge
+evalutils
+gcapi
+
+# Detection
+ensemble_boxes
+ipython
+sahi==0.9.3
+yolov5
+
+# Segmentation
+albumentations
+segmentation-models-pytorch
+ttach

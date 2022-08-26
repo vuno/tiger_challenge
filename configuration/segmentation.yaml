@@ -1,0 +1,20 @@
+model_411:
+  decoder_attention_type: scse
+  encoder: timm-efficientnet-b0
+  path: /vuno/challenges/tiger_public_release/pretrained_weights/segmentation/model_411.pth
+model_412:
+  decoder_attention_type: scse
+  encoder: timm-efficientnet-b0
+  path: /vuno/challenges/tiger_public_release/pretrained_weights/segmentation/model_412.pth
+model_413:
+  decoder_attention_type: scse
+  encoder: timm-efficientnet-b0
+  path: /vuno/challenges/tiger_public_release/pretrained_weights/segmentation/model_413.pth
+model_414:
+  decoder_attention_type: scse
+  encoder: timm-efficientnet-b0
+  path: /vuno/challenges/tiger_public_release/pretrained_weights/segmentation/model_414.pth
+model_415:
+  decoder_attention_type: scse
+  encoder: timm-efficientnet-b0
+  path: /vuno/challenges/tiger_public_release/pretrained_weights/segmentation/model_415.pth

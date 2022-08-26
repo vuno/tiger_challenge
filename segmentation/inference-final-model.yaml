@@ -1,0 +1,80 @@
+# Model load
+ensemble_model_conf:
+  _target_: segmentation.inference.ComposeModel
+  normalize_ensemble_weights: True
+  activation_fx:
+    _target_: segmentation.inference._get_activation_fx_softmax_with_temperature
+    temperature: 1.5
+
+  ensemble_weights:
+    model01: 1.
+    model02: 1.
+    model03: 1.
+    model04: 1.
+    model05: 1.
+
+  model_collection:
+    model01:
+      _target_: segmentation.inference._model_ckpt_init
+      initial_model:
+        _target_: segmentation_models_pytorch.Unet
+        encoder_name: timm-efficientnet-b0
+        encoder_weights: # None
+        decoder_attention_type: scse
+        classes: 3
+        in_channels: 3
+      ckpt_fname: /vuno/pretrained_weights/segmentation/model_1.pth
+
+    model02:
+      _target_: segmentation.inference._model_ckpt_init
+      initial_model:
+        _target_: segmentation_models_pytorch.Unet
+        encoder_name: timm-efficientnet-b0
+        encoder_weights: # None
+        decoder_attention_type: scse
+        classes: 3
+        in_channels: 3
+      ckpt_fname: /vuno/pretrained_weights/segmentation/model_2.pth
+
+    model03:
+      _target_: segmentation.inference._model_ckpt_init
+      initial_model:
+        _target_: segmentation_models_pytorch.Unet
+        encoder_name: timm-efficientnet-b0
+        encoder_weights: # None
+        decoder_attention_type: scse
+        classes: 3
+        in_channels: 3
+      ckpt_fname: /vuno/pretrained_weights/segmentation/model_3.pth
+
+    model04:
+      _target_: segmentation.inference._model_ckpt_init
+      initial_model:
+        _target_: segmentation_models_pytorch.Unet
+        encoder_name: timm-efficientnet-b0
+        encoder_weights: # None
+        decoder_attention_type: scse
+        classes: 3
+        in_channels: 3
+      ckpt_fname: /vuno/pretrained_weights/segmentation/model_4.pth
+
+    model05:
+      _target_: segmentation.inference._model_ckpt_init
+      initial_model:
+        _target_: segmentation_models_pytorch.Unet
+        encoder_name: timm-efficientnet-b0
+        encoder_weights: # None`
+        decoder_attention_type: scse
+        classes: 3
+        in_channels: 3
+      ckpt_fname: /vuno/pretrained_weights/segmentation/model_5.pth
+
+
+
+# Inference settings
+wsize: 1024
+wstride: 512
+batch_size: 1
+num_workers: 0
+out_channels: 3
+min_foreground_mask_ratio_to_infer: 0.01
