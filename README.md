@@ -2,6 +2,10 @@
 
 Algorithm for the [TIGER](https://tiger.grand-challenge.org/) challenge
 
+Our algorithm ranked 1st in [Survival (Final) Evaluation](https://tiger.grand-challenge.org/evaluation/survival-final-evaluation/leaderboard/).
+
+![leaderboard_screenshot](figure/leaderboard_screenshot.png)
+
 ## Tested Environment
 
 `Ubuntu 20.04`
