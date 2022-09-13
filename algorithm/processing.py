@@ -38,7 +38,7 @@ def process(
     seg_writer.write_segmentation(tile=empty_seg_mask, x=0, y=0)
     detect_writer.write_detections(detections=empty_detection, spacing=spacing, x_offset=0, y_offset=0)
 
-    tils_score = tils_pipeline.run_tils_pipeline(wsi_mri)
+    tils_score = tils_pipeline.run_tils_pipeline(wsi_mri, seg_writer, detect_writer)
 
     # write tils score
     tils_score_writer.set_tils_score(tils_score=tils_score)

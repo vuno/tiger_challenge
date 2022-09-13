@@ -6,6 +6,7 @@ import multiresolutionimageinterface as mir
 import numpy as np
 import torch
 
+import algorithm.rw as rw
 import configuration.configuration_loading as config_load
 import detection.detection_inference as detect_infer
 import pipeline.timer as timer
@@ -43,6 +44,8 @@ _CFG = {
 
 def run_tils_pipeline(
     wsi_mri: mir.MultiResolutionImage,
+    seg_writer: rw.SegmentationWriter,
+    det_writer: rw.DetectionWriter,
 ) -> None:
     loop_timer = timer.Timer(_CFG['TIME_LIMIT'], auto_start=True)
 
@@ -50,6 +53,17 @@ def run_tils_pipeline(
 
     wsi_at_seg_infer_mpp = _read_wsi_at_seg_infer_mpp(wsi_mri)
     seg_mask = seg_pipeline(img=wsi_at_seg_infer_mpp)
+
+    # save segmentation mask to writer
+    # TODO: need to optimize size(memory) issue - not good to handle mask as whole at l0 scale
+    # wsi_w_at_l0_mpp, wsi_h_at_l0_mpp = wsi_mri.getDimensions()
+    # seg_mask_at_l0_mpp = cv2.resize(
+    #     src=seg_mask,
+    #     dsize=(wsi_w_at_l0_mpp, wsi_h_at_l0_mpp),
+    #     interpolation=cv2.INTER_CUBIC)
+    # seg_writer.write_segmentation(tile=seg_mask_at_l0_mpp, x=0, y=0)
+
+    spacing = wsi_mri.getSpacing()
 
     tumor_mask, psb_mask, has_valid_tils_region = seg_pipeline.analyze_tumor_stroma_area(
         seg_mask=seg_mask,
@@ -126,6 +140,11 @@ def run_tils_pipeline(
                 continue
 
             detection = _run_detection(image_patch_at_l0_mpp, seg_mask_patch_at_seg_l0_mpp)
+            det_writer.write_detections(
+                detections=detection,
+                spacing=spacing,
+                x_offset=start_x_at_l0,
+                y_offset=start_y_at_l0)
 
             tils_related_info_of_patches.append({
                 "detect_count": len(detection),
