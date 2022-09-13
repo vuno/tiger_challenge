@@ -37,7 +37,7 @@ _CFG = {
         'NUM_OF_CAND_PATCHES': 50,
         'TOP_K': 20,
     },
-    'TIME_LIMIT': "01:45:00",
+    'TIME_LIMIT': "00:55:00",
 }
 
 
@@ -203,6 +203,7 @@ def _rescale_seg_infer_to_l0(
     num: int,
 ) -> int:
     return round(num * (_CFG['MPP']['SEG_INFER'] / _CFG['MPP']['L0']))
+
 
 @timer.timing
 def _run_detection(
