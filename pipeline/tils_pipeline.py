@@ -204,7 +204,7 @@ def _rescale_seg_infer_to_l0(
 ) -> int:
     return round(num * (_CFG['MPP']['SEG_INFER'] / _CFG['MPP']['L0']))
 
-
+@timer.timing
 def _run_detection(
     image_tile: np.ndarray,
     seg_mask: np.ndarray,

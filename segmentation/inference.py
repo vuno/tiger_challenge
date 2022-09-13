@@ -12,6 +12,7 @@ import torch
 from tqdm import tqdm
 import ttach
 
+import pipeline.timer as timer
 import segmentation.utils as utils
 
 _RAW_CLASS_INFO = {
@@ -261,6 +262,7 @@ class TIGERSegmentationPipeline(TIGERSegmentationPipelineBase):
 
         return prediction
 
+    @timer.timing
     def analyze_tumor_stroma_area(
         self,
         seg_mask: np.ndarray,

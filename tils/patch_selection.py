@@ -3,6 +3,8 @@ from typing import List, Tuple
 import cv2
 import numpy as np
 
+import pipeline.timer as timer
+
 
 def get_n_boundary_pts(
     mask: np.ndarray,
@@ -26,6 +28,7 @@ def get_n_boundary_pts(
     return selected_pts
 
 
+@timer.timing
 def get_top_k_high_area_patches(
     info_mask: np.ndarray,
     candid_center_pts: List[Tuple[int, int]],

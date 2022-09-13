@@ -1,3 +1,5 @@
+import time
+from functools import wraps
 from datetime import datetime, timedelta
 
 
@@ -34,3 +36,15 @@ class Timer:
         elapsed_time = curr_time - self._start_time
 
         return elapsed_time
+
+
+def timing(f):
+    @wraps(f)
+    def wrap(*args, **kw):
+        ts = time()
+        result = f(*args, **kw)
+        te = time()
+        print("func:%r args:[%r, %r] took: %2.4f sec" % (f.__name__, args, kw, te - ts))
+        return result
+
+    return wrap
