@@ -4,6 +4,7 @@ import cv2
 from tqdm import tqdm
 import multiresolutionimageinterface as mir
 import numpy as np
+import torch
 
 import configuration.configuration_loading as config_load
 import detection.detection_inference as detect_infer
@@ -152,6 +153,8 @@ def run_tils_pipeline(
 
 def _build_models(
 ) -> None:
+    print(f"Pytorch GPU available: {torch.cuda.is_available()}")
+
     detect_config = config_load.load_configuration(_CFG['CFG_PATH']['DETECT'])
     detect_infer.build_detect_model_pool(detect_config)
 
