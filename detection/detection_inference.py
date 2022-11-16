@@ -2,7 +2,7 @@ from typing import Any, List
 
 import numpy as np
 import pandas as pd
-from sahi.model import Yolov5DetectionModel
+from sahi import AutoDetectionModel
 from sahi.predict import get_sliced_prediction
 
 import detection.postprocess as det_postproc
@@ -60,10 +60,11 @@ def _build_detection_models(
         checkpoint_path = config[model_name]['path']
         threshold = config[model_name]['th']
         if config[model_name]['type'] == "yolov5":
-            detection_model = Yolov5DetectionModel(model_path=checkpoint_path,
-                                                   confidence_threshold=threshold,
-                                                   image_size=image_size,
-                                                   device=device)
+            detection_model = AutoDetectionModel.from_pretrained(model_type="yolov5",
+                                                                 model_path=checkpoint_path,
+                                                                 confidence_threshold=threshold,
+                                                                 image_size=image_size,
+                                                                 device=device)
         else:
             assert 'not define model path or need to insert path in list'
 
