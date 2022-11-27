@@ -9,7 +9,7 @@ gcapi
 # Detection
 ensemble_boxes
 ipython
-sahi==0.11.4
+sahi==0.11.5
 yolov5
 
 # Segmentation
