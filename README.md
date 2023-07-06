@@ -5,6 +5,7 @@ Our algorithm ranked 1st in [Survival (Final) Evaluation](https://tiger.grand-ch
 
 <details>
     <summary>Leaderboard Screenshot</summary>
+    
 ![leaderboard_screenshot](figure/leaderboard_screenshot.png)
 
 </details>
