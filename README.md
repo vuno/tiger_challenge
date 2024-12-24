@@ -43,3 +43,8 @@ Used docker related codes and algorithm template from the [official example](htt
 ## Notice
 
 This repository is provided as-is and is not actively maintained.
+
+## License
+
+© 2024 VUNO Inc. All Rights Reserved.
+Distributed under the Apache-2.0 license.
