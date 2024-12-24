@@ -46,5 +46,5 @@ This repository is provided as-is and is not actively maintained.
 
 ## License
 
-© 2024 VUNO Inc. All Rights Reserved.
+© 2024 VUNO Inc. All Rights Reserved.\
 Distributed under the Apache-2.0 license.
