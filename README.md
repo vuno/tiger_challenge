@@ -5,7 +5,7 @@ Our algorithm ranked 1st in [Survival (Final) Evaluation](https://tiger.grand-ch
 
 <details>
     <summary>Leaderboard Screenshot</summary>
-    
+
 ![leaderboard_screenshot](figure/leaderboard_screenshot.png)
 
 </details>
@@ -39,3 +39,7 @@ Used docker related codes and algorithm template from the [official example](htt
 - `segmentation/`: contains codes for segmentation model
 - `tils/`: contains codes to process for TILs inference
 - `./`: contains codes for docker
+
+## Notice
+
+This repository is provided as-is and is not actively maintained.
